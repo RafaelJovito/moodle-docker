@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  moodle-cron:
+    image: php:8.1-cli
+    container_name: moodle-cron
+    volumes:
+      - ./moodle:/var/www/html
+      - ./moodledata:/var/www/moodledata
+    command: >
+      bash -c "while true; do
+      php /var/www/html/admin/cli/cron.php;
+      sleep 60;
+      done"
+    depends_on:
+      - db
