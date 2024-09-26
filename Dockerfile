@@ -62,9 +62,13 @@ RUN mkdir /var/www/moodledata \
 RUN wget -q https://moodle.org/plugins/download.php/32361/theme_adaptable_moodle44_2024032802.zip \
     && wget -q https://moodle.org/plugins/download.php/33115/theme_moove_moodle44_2024082400.zip \
     && wget -q https://moodle.org/plugins/download.php/33211/theme_boost_magnific_moodle44_2024092302.zip \
+    && wget -q https://moodle.org/plugins/download.php/33113/format_tiles_moodle44_2024091140.zip \
     && unzip -q theme_adaptable_moodle44_2024032802.zip -d /var/www/html/moodle/theme \
     && unzip -q theme_moove_moodle44_2024082400.zip -d /var/www/html/moodle/theme \
     && unzip -q theme_boost_magnific_moodle44_2024092302.zip -d /var/www/html/moodle/theme \
-    && rm theme_adaptable_moodle44_2024032802.zip theme_moove_moodle44_2024082400.zip theme_boost_magnific_moodle44_2024092302.zip \
+    && unzip -q format_tiles_moodle44_2024091140.zip -d /var/www/html/course/format \
+    && rm theme_adaptable_moodle44_2024032802.zip theme_moove_moodle44_2024082400.zip theme_boost_magnific_moodle44_2024092302.zip format_tiles_moodle44_2024091140.zip \
     && chown -R www-data:www-data /var/www/html/moodle/theme \
-    && chmod -R 755 /var/www/html/moodle/theme
+    && chmod -R 755 /var/www/html/moodle/theme \
+    && chown -R www-data:www-data /var/www/html/moodle/course/format/tiles \
+    && chmod -R 755 /var/www/html/moodle/course/format/tiles
