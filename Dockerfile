@@ -27,20 +27,21 @@ RUN { \
         echo 'always_populate_raw_post_data = -1'; \
         echo 'cgi.fix_pathinfo = 1'; \
         echo 'session.auto_start = 0'; \
-        echo 'upload_max_filesize = 800M'; \
-        echo 'post_max_size = 150M'; \
-        echo 'memory_limit = 512M'; \
-        echo 'max_execution_time = 1800'; \
-        echo 'max_input_vars = 5000'; \
+        echo 'upload_max_filesize = 950M'; \
+        echo 'post_max_size = 950M'; \
+        echo 'memory_limit = 2048M'; \
+        echo 'max_execution_time = 2800'; \
+        echo 'max_input_vars = 8000'; \
+        echo 'max_file_uploads = 50'; \
         echo '[opcache]'; \
-        echo 'opcache.enable = 1'; \
-        echo 'opcache.memory_consumption = 128'; \
-        echo 'opcache.max_accelerated_files = 8000'; \
+        echo 'opcache.enable = 1'; \  
+        echo 'opcache.memory_consumption = 256'; \
+        echo 'opcache.max_accelerated_files = 10000'; \
         echo 'opcache.revalidate_freq = 60'; \
         echo 'opcache.use_cwd = 1'; \
         echo 'opcache.validate_timestamps = 1'; \
         echo 'opcache.save_comments = 1'; \
-        echo 'opcache.enable_file_override = 0'; \
+        echo 'opcache.enable_file_override = 0'; \  
     } > /usr/local/etc/php/conf.d/php.ini
 
 # Define o diretório de trabalho para o Apache
@@ -59,16 +60,17 @@ RUN mkdir /var/www/moodledata \
     && chmod -R 770 /var/www/moodledata
 
 # Baixar e instalar os temas Adaptable, Moove e Boost Magnific para o Moodle
-RUN wget -q https://moodle.org/plugins/download.php/32361/theme_adaptable_moodle44_2024032802.zip \
+RUN mkdir -p /var/www/html/course/format \
     && wget -q https://moodle.org/plugins/download.php/33115/theme_moove_moodle44_2024082400.zip \
-    && wget -q https://moodle.org/plugins/download.php/33211/theme_boost_magnific_moodle44_2024092302.zip \
-    && wget -q https://moodle.org/plugins/download.php/33113/format_tiles_moodle44_2024091140.zip \
-    && unzip -q theme_adaptable_moodle44_2024032802.zip -d /var/www/html/moodle/theme \
+    && wget -q https://moodle.org/plugins/download.php/33227/theme_boost_magnific_moodle44_2024092600.zip \
+    && wget -q https://moodle.org/plugins/download.php/32457/theme_stream_moodle44_2024070101.zip \
+    && wget -q https://moodle.org/plugins/download.php/32790/theme_almondb_moodle44_2024080800.zip \
     && unzip -q theme_moove_moodle44_2024082400.zip -d /var/www/html/moodle/theme \
-    && unzip -q theme_boost_magnific_moodle44_2024092302.zip -d /var/www/html/moodle/theme \
-    && unzip -q format_tiles_moodle44_2024091140.zip -d /var/www/html/course/format \
-    && rm theme_adaptable_moodle44_2024032802.zip theme_moove_moodle44_2024082400.zip theme_boost_magnific_moodle44_2024092302.zip format_tiles_moodle44_2024091140.zip \
+    && unzip -q theme_boost_magnific_moodle44_2024092600.zip -d /var/www/html/moodle/theme \
+    && unzip -q theme_stream_moodle44_2024070101.zip -d /var/www/html/moodle/theme \
+    && unzip -q theme_almondb_moodle44_2024080800.zip -d /var/www/html/moodle/theme \
+    && rm theme_moove_moodle44_2024082400.zip theme_boost_magnific_moodle44_2024092600.zip theme_stream_moodle44_2024070101.zip theme_almondb_moodle44_2024080800.zip \
     && chown -R www-data:www-data /var/www/html/moodle/theme \
     && chmod -R 755 /var/www/html/moodle/theme \
-    && chown -R www-data:www-data /var/www/html/moodle/course/format/tiles \
-    && chmod -R 755 /var/www/html/moodle/course/format/tiles
+
+

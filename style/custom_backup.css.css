@@ -1,0 +1,48 @@
+.navbar-light .navbar-brand {
+    color: white;
+}
+
+.navbar-light .navbar-nav .nav-link.active {
+    color: #fff;
+    background-color: #23507c;
+
+}
+.moremenu .nav-link.active:hover {
+    background-color: #23507c;
+    border-bottom-color: #ef7d00;
+}
+
+.bg-white {
+    background-color: #00003C !important;
+}
+
+
+.primary-navigation .navigation .nav-link{
+    color: #fff;
+}
+.moremenu .nav-link:hover, .moremenu .nav-link:focus{
+     background: #04125e;
+     color: #fff;
+}
+.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus{
+    color: #fff;
+}
+
+i.icon.fa.fa-bell-o.fa-fw {
+    color: #ffffff;
+}
+
+.usermenu {
+    background-color: orange;
+    border-radius: 12px;
+    padding: 6px;
+    color: #ffffff;
+}
+
+.usermenu span {
+  color: #ffffff;
+}
+.usermenu span a {
+    color: #ffffff;
+    font-weight: 600;
+}
