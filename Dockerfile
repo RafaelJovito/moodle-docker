@@ -72,5 +72,3 @@ RUN mkdir -p /var/www/html/course/format \
     && rm theme_moove_moodle44_2024082400.zip theme_boost_magnific_moodle44_2024092600.zip theme_stream_moodle44_2024070101.zip theme_almondb_moodle44_2024080800.zip \
     && chown -R www-data:www-data /var/www/html/moodle/theme \
     && chmod -R 755 /var/www/html/moodle/theme \
-
-

@@ -46,3 +46,12 @@ i.icon.fa.fa-bell-o.fa-fw {
     color: #ffffff;
     font-weight: 600;
 }
+header .page-context-header {
+    margin-left: 1rem;
+    margin-top: 1rem;
+    padding: 5px 15px 5px 15px;
+    background: #dbdbdb;
+    border-radius: 6px;
+    color: #16174c;
+    border: 1px solid #c5c3c3;
+}
